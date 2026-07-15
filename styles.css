@@ -1,0 +1,236 @@
+.workspace-leaf-content[data-type="galaxy-graph-view"] .view-content {
+  overflow: hidden;
+  padding: 0;
+}
+
+.galaxy-graph-view {
+  background: #03040b;
+}
+
+.galaxy-graph-shell {
+  height: 100%;
+  min-height: 280px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.galaxy-graph-canvas,
+.galaxy-graph-canvas > div,
+.galaxy-graph-canvas canvas {
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.galaxy-graph-toolbar {
+  align-items: center;
+  backdrop-filter: blur(18px) saturate(135%);
+  background: linear-gradient(135deg, rgba(13, 19, 42, 0.79), rgba(7, 9, 23, 0.58));
+  border: 1px solid rgba(168, 202, 255, 0.16);
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.34), inset 0 1px rgba(255, 255, 255, 0.06);
+  display: flex;
+  gap: 12px;
+  left: 16px;
+  max-width: calc(100% - 32px);
+  padding: 8px 9px 8px 12px;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 10;
+}
+
+.galaxy-graph-brand {
+  align-items: center;
+  color: rgba(231, 245, 255, 0.96);
+  display: flex;
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: 700;
+  gap: 7px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.galaxy-graph-brand-icon {
+  color: #8cdfff;
+  display: inline-flex;
+  filter: drop-shadow(0 0 8px rgba(90, 204, 255, 0.8));
+}
+
+.galaxy-graph-brand-icon svg {
+  height: 16px;
+  width: 16px;
+}
+
+.galaxy-graph-search {
+  align-items: center;
+  background: rgba(1, 4, 14, 0.42);
+  border: 1px solid rgba(145, 186, 255, 0.12);
+  border-radius: 9px;
+  display: flex;
+  flex: 1 1 220px;
+  max-width: 420px;
+  min-width: 120px;
+  padding: 0 9px;
+}
+
+.galaxy-graph-search > span {
+  color: rgba(174, 205, 240, 0.64);
+  display: flex;
+}
+
+.galaxy-graph-search svg {
+  height: 14px;
+  width: 14px;
+}
+
+.galaxy-graph-search input[type="search"] {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: rgba(235, 247, 255, 0.94);
+  font-size: 12px;
+  height: 30px;
+  padding: 0 7px;
+  width: 100%;
+}
+
+.galaxy-graph-search input[type="search"]::placeholder {
+  color: rgba(177, 199, 228, 0.49);
+}
+
+.galaxy-graph-search:focus-within {
+  border-color: rgba(114, 209, 255, 0.42);
+  box-shadow: 0 0 0 2px rgba(71, 182, 255, 0.08);
+}
+
+.galaxy-graph-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.galaxy-graph-button {
+  align-items: center;
+  background: rgba(109, 151, 212, 0.08);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: none;
+  color: rgba(207, 227, 247, 0.76);
+  display: flex;
+  font-size: 11px;
+  gap: 5px;
+  height: 30px;
+  padding: 0 9px;
+}
+
+.galaxy-graph-button:hover,
+.galaxy-graph-button.is-active {
+  background: rgba(88, 189, 255, 0.14);
+  border-color: rgba(116, 210, 255, 0.2);
+  color: #e7f8ff;
+}
+
+.galaxy-graph-button.is-active {
+  box-shadow: inset 0 0 12px rgba(77, 186, 255, 0.09), 0 0 12px rgba(77, 186, 255, 0.06);
+}
+
+.galaxy-graph-button svg {
+  height: 14px;
+  width: 14px;
+}
+
+.galaxy-graph-status,
+.galaxy-graph-hint {
+  backdrop-filter: blur(10px);
+  background: rgba(4, 8, 20, 0.5);
+  border: 1px solid rgba(154, 195, 242, 0.1);
+  border-radius: 999px;
+  bottom: 14px;
+  color: rgba(192, 213, 237, 0.61);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  padding: 5px 9px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 8;
+}
+
+.galaxy-graph-status {
+  right: 14px;
+}
+
+.galaxy-graph-hint {
+  left: 14px;
+}
+
+.galaxy-graph-canvas .scene-tooltip {
+  z-index: 12;
+}
+
+.galaxy-graph-tooltip {
+  backdrop-filter: blur(14px) saturate(135%);
+  background: linear-gradient(150deg, rgba(17, 26, 54, 0.92), rgba(5, 8, 22, 0.88));
+  border: 1px solid rgba(151, 213, 255, 0.26);
+  border-radius: 10px;
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.42), 0 0 24px rgba(84, 184, 255, 0.08);
+  color: rgba(230, 244, 255, 0.96);
+  max-width: 320px;
+  padding: 9px 11px;
+  pointer-events: none;
+  text-align: left;
+}
+
+.galaxy-graph-tooltip-title {
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.galaxy-graph-tooltip-path,
+.galaxy-graph-tooltip-meta {
+  color: rgba(178, 203, 232, 0.64);
+  font-size: 9px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.galaxy-graph-tooltip-path {
+  margin-top: 2px;
+}
+
+.galaxy-graph-tooltip-meta {
+  color: rgba(124, 215, 255, 0.72);
+  margin-top: 4px;
+}
+
+.galaxy-graph-settings-folders {
+  min-width: 280px;
+}
+
+@media (max-width: 720px) {
+  .galaxy-graph-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .galaxy-graph-brand {
+    display: none;
+  }
+
+  .galaxy-graph-search {
+    max-width: none;
+  }
+
+  .galaxy-graph-button-label,
+  .galaxy-graph-hint {
+    display: none;
+  }
+
+  .galaxy-graph-button {
+    padding: 0 8px;
+  }
+}
