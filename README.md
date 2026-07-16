@@ -17,6 +17,18 @@ their resolved links as a translucent, navigable 3D galaxy.
 - Automatic large-vault mode with compact stars, lighter fog, and a configurable
   link cap that preserves strong links and broad node coverage
 
+## Install
+
+Download the latest release archive, extract it into
+`<vault>/.obsidian/plugins/galaxy-graph/`, restart Obsidian, and enable
+**Galaxy Graph** under **Settings → Community plugins**.
+
+## Privacy
+
+Galaxy Graph reads local Markdown file paths and Obsidian's resolved-link
+metadata to build the visualization. It does not transmit vault data, include
+telemetry, or make network requests.
+
 ## Development
 
 ```bash

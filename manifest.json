@@ -5,5 +5,6 @@
   "minAppVersion": "1.10.0",
   "description": "Explore your vault as an immersive, translucent 3D galaxy.",
   "author": "DECK",
+  "authorUrl": "https://github.com/DECK6",
   "isDesktopOnly": true
 }
