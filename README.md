@@ -1,9 +1,9 @@
-# Galaxy Graph
+# Galaxy Graph 3D
 
-Galaxy Graph is a desktop-only Obsidian plugin that renders Markdown notes and
+Galaxy Graph 3D is a desktop-only Obsidian plugin that renders Markdown notes and
 their resolved links as a translucent, navigable 3D galaxy.
 
-![Galaxy Graph rendering a large Obsidian vault](assets/galaxy-graph-akm.png)
+![Galaxy Graph 3D rendering a large Obsidian vault](assets/galaxy-graph-akm.png)
 
 ## First version
 
@@ -20,12 +20,12 @@ their resolved links as a translucent, navigable 3D galaxy.
 ## Install
 
 Download the latest release archive, extract it into
-`<vault>/.obsidian/plugins/galaxy-graph/`, restart Obsidian, and enable
-**Galaxy Graph** under **Settings → Community plugins**.
+`<vault>/.obsidian/plugins/galaxy-graph-3d/`, restart Obsidian, and enable
+**Galaxy Graph 3D** under **Settings → Community plugins**.
 
 ## Privacy
 
-Galaxy Graph reads local Markdown file paths and Obsidian's resolved-link
+Galaxy Graph 3D reads local Markdown file paths and Obsidian's resolved-link
 metadata to build the visualization. It does not transmit vault data, include
 telemetry, or make network requests.
 
@@ -39,10 +39,10 @@ npm run build
 Copy `main.js`, `manifest.json`, and `styles.css` to:
 
 ```text
-<vault>/.obsidian/plugins/galaxy-graph/
+<vault>/.obsidian/plugins/galaxy-graph-3d/
 ```
 
-Then enable **Galaxy Graph** in Obsidian's Community plugins settings.
+Then enable **Galaxy Graph 3D** in Obsidian's Community plugins settings.
 
 Large vaults automatically switch to compact star sprites, lighter depth fog,
 and a capped link set. Every note remains visible; strong links and broad node

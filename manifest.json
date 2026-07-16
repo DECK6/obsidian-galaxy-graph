@@ -1,7 +1,7 @@
 {
-  "id": "galaxy-graph",
-  "name": "Galaxy Graph",
-  "version": "0.1.0",
+  "id": "galaxy-graph-3d",
+  "name": "Galaxy Graph 3D",
+  "version": "0.1.1",
   "minAppVersion": "1.10.0",
   "description": "Explore your vault as an immersive, translucent 3D galaxy.",
   "author": "DECK",
