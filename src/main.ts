@@ -1,5 +1,6 @@
-import { Notice, Plugin, type TFile, type WorkspaceLeaf } from "obsidian";
+import { getLanguage, Notice, Plugin, type TFile, type WorkspaceLeaf } from "obsidian";
 import { GalaxyGraphView, GALAXY_GRAPH_VIEW_TYPE } from "./galaxy-view";
+import { translationsFor } from "./i18n";
 import {
   DEFAULT_SETTINGS,
   GalaxyGraphSettingTab,
@@ -8,6 +9,7 @@ import {
 
 export default class GalaxyGraphPlugin extends Plugin {
   settings: GalaxyGraphSettings = DEFAULT_SETTINGS;
+  readonly i18n = translationsFor(getLanguage());
   private lastMarkdownPath: string | null = null;
   private refreshTimer: number | null = null;
 
@@ -20,13 +22,13 @@ export default class GalaxyGraphPlugin extends Plugin {
       (leaf) => new GalaxyGraphView(leaf, this)
     );
 
-    this.addRibbonIcon("orbit", "Open Galaxy Graph", () => {
+    this.addRibbonIcon("orbit", this.i18n.ribbonOpen, () => {
       void this.activateView();
     });
 
     this.addCommand({
       id: "open-view",
-      name: "Open view",
+      name: this.i18n.commandOpenView,
       callback: () => {
         void this.activateView();
       }
@@ -34,7 +36,7 @@ export default class GalaxyGraphPlugin extends Plugin {
 
     this.addCommand({
       id: "focus-active-note",
-      name: "Focus active note",
+      name: this.i18n.commandFocusActiveNote,
       callback: () => {
         void this.activateView(true);
       }
@@ -88,7 +90,7 @@ export default class GalaxyGraphPlugin extends Plugin {
       }
       return;
     }
-    new Notice("Galaxy Graph view could not be opened.");
+    new Notice(this.i18n.noticeViewOpenFailed);
   }
 
   private scheduleRefresh(): void {

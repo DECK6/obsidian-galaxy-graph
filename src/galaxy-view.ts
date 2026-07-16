@@ -47,7 +47,7 @@ export class GalaxyGraphView extends ItemView {
   }
 
   getDisplayText(): string {
-    return "Galaxy Graph";
+    return this.plugin.i18n.viewTitle;
   }
 
   getIcon(): string {
@@ -64,7 +64,7 @@ export class GalaxyGraphView extends ItemView {
     this.statusEl = shell.createDiv({ cls: "galaxy-graph-status" });
     shell.createDiv({
       cls: "galaxy-graph-hint",
-      text: "드래그 회전 · 우클릭 드래그 이동 · 스크롤 확대"
+      text: this.plugin.i18n.viewHint
     });
 
     this.starFactory = new StarVisualFactory();
@@ -159,13 +159,13 @@ export class GalaxyGraphView extends ItemView {
   focusActiveNeighborhood(): void {
     const activePath = this.plugin.getLastMarkdownPath();
     if (!activePath) {
-      this.setTemporaryStatus("먼저 마크다운 노트를 열어 주세요");
+      this.setTemporaryStatus(this.plugin.i18n.statusOpenMarkdownFirst);
       return;
     }
 
     const node = this.nodeById.get(activePath);
     if (!node) {
-      this.setTemporaryStatus("활성 노트가 현재 은하 필터에 포함되지 않습니다");
+      this.setTemporaryStatus(this.plugin.i18n.statusActiveNoteExcluded);
       return;
     }
 
@@ -189,8 +189,8 @@ export class GalaxyGraphView extends ItemView {
     setIcon(searchIcon, "search");
     this.searchInput = search.createEl("input", {
       attr: {
-        "aria-label": "은하에서 노트 검색",
-        placeholder: "노트 검색…",
+        "aria-label": this.plugin.i18n.searchAriaLabel,
+        placeholder: this.plugin.i18n.searchPlaceholder,
         type: "search"
       }
     });
@@ -206,13 +206,28 @@ export class GalaxyGraphView extends ItemView {
     });
 
     const actions = toolbar.createDiv({ cls: "galaxy-graph-actions" });
-    const activeButton = this.createToolbarButton(actions, "circle-dot", "활성", "활성 노트 주변 보기");
+    const activeButton = this.createToolbarButton(
+      actions,
+      "circle-dot",
+      this.plugin.i18n.toolbarActive,
+      this.plugin.i18n.toolbarActiveTitle
+    );
     this.registerDomEvent(activeButton, "click", () => this.focusActiveNeighborhood());
 
-    const fitButton = this.createToolbarButton(actions, "scan", "맞춤", "전체 은하를 화면에 맞추기");
+    const fitButton = this.createToolbarButton(
+      actions,
+      "scan",
+      this.plugin.i18n.toolbarFit,
+      this.plugin.i18n.toolbarFitTitle
+    );
     this.registerDomEvent(fitButton, "click", () => this.fitGalaxy());
 
-    this.rotationButton = this.createToolbarButton(actions, "rotate-3d", "회전", "자동 회전 켜기/끄기");
+    this.rotationButton = this.createToolbarButton(
+      actions,
+      "rotate-3d",
+      this.plugin.i18n.toolbarRotate,
+      this.plugin.i18n.toolbarRotateTitle
+    );
     this.registerDomEvent(this.rotationButton, "click", () => {
       this.rotationEnabled = !this.rotationEnabled;
       this.applyRotationSettings();
@@ -324,7 +339,7 @@ export class GalaxyGraphView extends ItemView {
     label.createDiv({ cls: "galaxy-graph-tooltip-path", text: node.path });
     label.createDiv({
       cls: "galaxy-graph-tooltip-meta",
-      text: `${node.degree.toLocaleString()}개 연결 · ${node.folder}`
+      text: this.plugin.i18n.nodeConnections(node.degree, node.folder)
     });
     return label;
   }
@@ -368,7 +383,7 @@ export class GalaxyGraphView extends ItemView {
     }
     this.highlightedIds = highlighted;
     this.updateEmphasis();
-    this.setStatus(`${matches.length.toLocaleString()}개 검색 결과 · 이웃 포함 ${highlighted.size.toLocaleString()}개 별`);
+    this.setStatus(this.plugin.i18n.searchResults(matches.length, highlighted.size));
   }
 
   private focusBestSearchMatch(): void {
@@ -484,9 +499,9 @@ export class GalaxyGraphView extends ItemView {
 
   private updateStatus(): void {
     const linkText = this.data.totalLinks > this.data.links.length
-      ? `${this.data.links.length.toLocaleString()} / ${this.data.totalLinks.toLocaleString()}개 연결`
-      : `${this.data.links.length.toLocaleString()}개 연결`;
-    this.setStatus(`${this.data.nodes.length.toLocaleString()}개 별 · ${linkText}`);
+      ? this.plugin.i18n.linkCount(this.data.links.length, this.data.totalLinks)
+      : this.plugin.i18n.linkCount(this.data.links.length);
+    this.setStatus(this.plugin.i18n.graphStatus(this.data.nodes.length, linkText));
   }
 
   private effectiveLinkOpacity(): number {

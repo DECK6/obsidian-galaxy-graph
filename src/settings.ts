@@ -32,15 +32,16 @@ export class GalaxyGraphSettingTab extends PluginSettingTab {
 
   display(): void {
     const { containerEl } = this;
+    const t = this.plugin.i18n;
     containerEl.empty();
     containerEl.createEl("p", {
       cls: "setting-item-description",
-      text: "Tune the galaxy without changing Obsidian's built-in Graph view."
+      text: t.settingsIntro
     });
 
     new Setting(containerEl)
-      .setName("Auto-rotate")
-      .setDesc("Slowly rotate the camera while the galaxy is idle.")
+      .setName(t.autoRotateName)
+      .setDesc(t.autoRotateDescription)
       .addToggle((toggle) =>
         toggle.setValue(this.plugin.settings.autoRotate).onChange(async (value) => {
           await this.plugin.updateSettings({ autoRotate: value });
@@ -48,8 +49,8 @@ export class GalaxyGraphSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Rotation speed")
-      .setDesc("Camera rotation speed while auto-rotate is enabled.")
+      .setName(t.rotationSpeedName)
+      .setDesc(t.rotationSpeedDescription)
       .addSlider((slider) =>
         slider
           .setLimits(0.05, 1, 0.05)
@@ -61,8 +62,8 @@ export class GalaxyGraphSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Star scale")
-      .setDesc("Scale star cores and their translucent halos.")
+      .setName(t.starScaleName)
+      .setDesc(t.starScaleDescription)
       .addSlider((slider) =>
         slider
           .setLimits(0.55, 2.2, 0.05)
@@ -74,8 +75,8 @@ export class GalaxyGraphSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Glow strength")
-      .setDesc("Bloom intensity around stars and bright links.")
+      .setName(t.glowStrengthName)
+      .setDesc(t.glowStrengthDescription)
       .addSlider((slider) =>
         slider
           .setLimits(0, 2.5, 0.05)
@@ -87,8 +88,8 @@ export class GalaxyGraphSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Link opacity")
-      .setDesc("Opacity of the lines connecting linked notes.")
+      .setName(t.linkOpacityName)
+      .setDesc(t.linkOpacityDescription)
       .addSlider((slider) =>
         slider
           .setLimits(0.03, 0.7, 0.01)
@@ -100,8 +101,8 @@ export class GalaxyGraphSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Maximum rendered links")
-      .setDesc("Caps 3D links in very large vaults. Strong links and broad node coverage are kept first.")
+      .setName(t.maxLinksName)
+      .setDesc(t.maxLinksDescription)
       .addSlider((slider) =>
         slider
           .setLimits(5000, 60000, 1000)
@@ -113,8 +114,8 @@ export class GalaxyGraphSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Background")
-      .setDesc("Deep-space background color in CSS hex format.")
+      .setName(t.backgroundName)
+      .setDesc(t.backgroundDescription)
       .addText((text) =>
         text
           .setPlaceholder("#03040b")
@@ -127,8 +128,8 @@ export class GalaxyGraphSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Show unlinked notes")
-      .setDesc("Include notes with no incoming or outgoing resolved links.")
+      .setName(t.showOrphansName)
+      .setDesc(t.showOrphansDescription)
       .addToggle((toggle) =>
         toggle.setValue(this.plugin.settings.showOrphans).onChange(async (value) => {
           await this.plugin.updateSettings({ showOrphans: value });
@@ -136,11 +137,11 @@ export class GalaxyGraphSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Excluded folders")
-      .setDesc("Comma-separated vault-relative folder paths. Their descendants are also excluded.")
+      .setName(t.excludedFoldersName)
+      .setDesc(t.excludedFoldersDescription)
       .addTextArea((text) => {
         text
-          .setPlaceholder("Templates, Archive/Private")
+          .setPlaceholder(t.excludedFoldersPlaceholder)
           .setValue(this.plugin.settings.excludedFolders)
           .onChange(async (value) => {
             await this.plugin.updateSettings({ excludedFolders: value });
