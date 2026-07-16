@@ -33,7 +33,6 @@ export class GalaxyGraphSettingTab extends PluginSettingTab {
   display(): void {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl("h2", { text: "Galaxy Graph" });
     containerEl.createEl("p", {
       cls: "setting-item-description",
       text: "Tune the galaxy without changing Obsidian's built-in Graph view."

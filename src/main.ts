@@ -25,8 +25,8 @@ export default class GalaxyGraphPlugin extends Plugin {
     });
 
     this.addCommand({
-      id: "open-galaxy-graph",
-      name: "Open galaxy graph",
+      id: "open-view",
+      name: "Open view",
       callback: () => {
         void this.activateView();
       }
@@ -34,7 +34,7 @@ export default class GalaxyGraphPlugin extends Plugin {
 
     this.addCommand({
       id: "focus-active-note",
-      name: "Focus active note in galaxy graph",
+      name: "Focus active note",
       callback: () => {
         void this.activateView(true);
       }
