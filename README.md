@@ -3,7 +3,9 @@
 Galaxy Graph 3D is a desktop-only Obsidian plugin that renders Markdown notes and
 their resolved links as a translucent, navigable 3D galaxy.
 
-![Galaxy Graph 3D rendering a large Obsidian vault](assets/galaxy-graph-akm.png)
+## Demo
+
+[▶ Watch the 72-second Galaxy Graph 3D demo](https://github.com/DECK6/obsidian-galaxy-graph/releases/download/0.1.3/galaxy-graph-demo.mp4)
 
 ## First version
 
