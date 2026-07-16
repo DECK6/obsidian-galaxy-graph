@@ -19,9 +19,9 @@ their resolved links as a translucent, navigable 3D galaxy.
 
 ## Install
 
-Download the latest release archive, extract it into
-`<vault>/.obsidian/plugins/galaxy-graph-view/`, restart Obsidian, and enable
-**Galaxy Graph 3D** under **Settings → Community plugins**.
+Download `main.js`, `manifest.json`, and `styles.css` from the latest release,
+place them in `<vault>/.obsidian/plugins/galaxy-graph-view/`, restart Obsidian,
+and enable **Galaxy Graph 3D** under **Settings → Community plugins**.
 
 ## Privacy
 

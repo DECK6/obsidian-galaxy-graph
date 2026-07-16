@@ -57,7 +57,6 @@ export default class GalaxyGraphPlugin extends Plugin {
     if (this.refreshTimer !== null) {
       window.clearTimeout(this.refreshTimer);
     }
-    this.app.workspace.detachLeavesOfType(GALAXY_GRAPH_VIEW_TYPE);
   }
 
   getLastMarkdownPath(): string | null {
